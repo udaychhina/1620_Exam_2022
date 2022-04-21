@@ -56,12 +56,33 @@ window.onload = loadContacts(contactsList)
 
 function loadContacts() {
     const allContacts = document.querySelector('#display_all_contacts')
+    
     for(let i = 0; i < contactsList.length; i++) {
         let contactCard = document.createElement('div')
         contactCard.innerHTML = `
         <img src='./img/${contactsList[i].image}'>
         <p> ${contactsList[i].name}</p>`
+        
         allContacts.appendChild(contactCard)
     }
 }
 
+
+// DISPLAY A SINGLE CONTACT 
+
+const cards = document.querySelectorAll('#display_all_contacts div')
+
+cards.forEach(cards => cards.addEventListener('click', (e) => {
+    //hide the contacts
+    const allContactSpace = document.querySelector('#display_all_contacts')
+    allContactSpace.style.visibility = 'hidden'
+
+    //create new space for a single contact card
+    const contactSpace = document.createElement('div')
+    contactSpace.setAttribute('id', 'individual_contact')
+    console.log(cards.value)
+}))
+
+// function displaySingleContact () {
+
+// }
