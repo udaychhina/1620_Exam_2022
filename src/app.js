@@ -51,4 +51,17 @@ const contactsList = [
   },
 ]
 
-// Your code goes here
+window.onload = loadContacts(contactsList)
+// LOAD ALL CONTACTS
+
+function loadContacts() {
+    const allContacts = document.querySelector('#display_all_contacts')
+    for(let i = 0; i < contactsList.length; i++) {
+        let contactCard = document.createElement('div')
+        contactCard.innerHTML = `
+        <img src='./img/${contactsList[i].image}'>
+        <p> ${contactsList[i].name}</p>`
+        allContacts.appendChild(contactCard)
+    }
+}
+
