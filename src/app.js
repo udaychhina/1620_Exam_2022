@@ -61,7 +61,7 @@ function loadContacts() {
         let contactCard = document.createElement('div')
         contactCard.innerHTML = `
         <img src='./img/${contactsList[i].image}'>
-        <p> ${contactsList[i].name}</p>`
+        <p>${contactsList[i].name}</p>`
         
         allContacts.appendChild(contactCard)
     }
@@ -80,8 +80,36 @@ cards.forEach(cards => cards.addEventListener('click', (e) => {
     //create new space for a single contact card
     const contactSpace = document.createElement('div')
     contactSpace.setAttribute('id', 'individual_contact')
-    console.log(cards.value)
+
+    let contactName = cards.textContent.trim()
+    let contactIndex = 0
+    for(let i = 0; i < contactsList.length; i++) {
+        if(contactName == contactsList[i].name) {
+            break
+        }
+        contactIndex++
+    }
+
+    contactSpace.innerHTML = `
+    <img src='./img/${contactsList[contactIndex].image}'>
+    <h1>${contactsList[contactIndex].name}</h1>
+    <p>${contactsList[contactIndex].phone}</p>
+    <p>${contactsList[contactIndex].email}</p>
+    <span class='close'>close</span>`
+
+    const contactSection = document.querySelector('#display_single_contact')
+    contactSection.appendChild(contactSpace)
 }))
+
+const closeButton = document.querySelector('.close')
+
+closeButton.addEventListener('click', () => {
+    const allContacts = document.querySelector('#display_all_contacts')
+    const singleContact = document.querySelector('#display_single_contact')
+    allContacts.style.visibility = 'visible'
+    singleContact.style.visibility = 'hidden'
+})
+
 
 // function displaySingleContact () {
 
