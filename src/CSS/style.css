@@ -94,7 +94,7 @@ main {
 #individual_contact span {
     font-size: 3rem;
     margin: 5px;
-    background-color: var(--blue);
+    /* background-color: var(--blue); */
     height: 3rem;
     border-radius: 50px;
 }

@@ -95,7 +95,7 @@ cards.forEach(cards => cards.addEventListener('click', (e) => {
     <h1>${contactsList[contactIndex].name}</h1>
     <p>${contactsList[contactIndex].phone}</p>
     <p>${contactsList[contactIndex].email}</p>
-    <span class='close'>close</span>`
+    <span class="fa-solid fa-x"></span>`
 
     const contactSection = document.querySelector('#display_single_contact')
     contactSection.appendChild(contactSpace)
